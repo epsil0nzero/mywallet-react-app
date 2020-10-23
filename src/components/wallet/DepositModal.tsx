@@ -23,8 +23,8 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const DepositModal = ({ open, closeDepositModal }: any) => {
-
+const DepositModal = ({ open, data, closeDepositModal }: any) => {
+    
   const classes = useStyles();
   return (
     <div>
@@ -40,7 +40,7 @@ const DepositModal = ({ open, closeDepositModal }: any) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="deposit-modal-title">Deposit</h2>
+            <h2 id="deposit-modal-title">{data.symbol}</h2>
           </div>
         </Fade>
       </Modal>
@@ -49,7 +49,8 @@ const DepositModal = ({ open, closeDepositModal }: any) => {
 }
 
 const mapStateToProps = (state: any) => ({
-    open: state.wallet.depositModalOpen
+    open: state.wallet.depositModalOpen,
+    data: state.wallet.depositModalData
 });
 
 export default connect(mapStateToProps, { closeDepositModal })(DepositModal);

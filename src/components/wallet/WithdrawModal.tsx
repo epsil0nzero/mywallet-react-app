@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const WithdrawModal = ({ open, closeWithdrawModal }: any) => {
+const WithdrawModal = ({ open, data, closeWithdrawModal }: any) => {
 
   const classes = useStyles();
   return (
@@ -40,7 +40,7 @@ const WithdrawModal = ({ open, closeWithdrawModal }: any) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="withdraw-modal-title">Withdraw</h2>
+            <h2 id="withdraw-modal-title">{data.symbol}</h2>
           </div>
         </Fade>
       </Modal>
@@ -49,7 +49,8 @@ const WithdrawModal = ({ open, closeWithdrawModal }: any) => {
 }
 
 const mapStateToProps = (state: any) => ({
-    open: state.wallet.withdrawModalOpen
+    open: state.wallet.withdrawModalOpen,
+    data: state.wallet.withdrawModalData
 });
 
 export default connect(mapStateToProps, { closeWithdrawModal })(WithdrawModal);

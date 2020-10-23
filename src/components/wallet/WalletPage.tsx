@@ -27,8 +27,8 @@ const WalletPage = ({
     renderCell: (params: ValueFormatterParams) =>  { 
       return (
         <div>     
-            <ArrowUpward onClick={function() { openWithdrawModal() }}/>
-            <ArrowDownward onClick={function() { openDepositModal()}}/>
+            <ArrowUpward onClick={function() { openWithdrawModal(params.data) }}/>
+            <ArrowDownward onClick={function() { openDepositModal(params.data)}}/>
         </div>
       );
     }

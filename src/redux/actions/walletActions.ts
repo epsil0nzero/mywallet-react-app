@@ -4,8 +4,10 @@ import {
   WALLET_BALANCES_LOADING,
   WALLET_OPEN_DEPOSIT_MODAL,
   WALLET_CLOSE_DEPOSIT_MODAL,
+  WALLET_SET_DEPOSIT_MODAL_DATA,
   WALLET_OPEN_WITHDRAW_MODAL,
-  WALLET_CLOSE_WITHDRAW_MODAL
+  WALLET_CLOSE_WITHDRAW_MODAL,
+  WALLET_SET_WITHDRAW_MODAL_DATA
 } from './types';
 import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
@@ -31,26 +33,44 @@ export const setWalletBalanceLoading = () => {
   };
 };
 
-export const openDepositModal = () => (dispatch: Function) => {
+export const openDepositModal = (data: any) => (dispatch: Function,) => {
+  dispatch(setDepositModalData(data));
   dispatch({
     type: WALLET_OPEN_DEPOSIT_MODAL
   });
 };
 
 export const closeDepositModal = () => (dispatch: Function) => {
+  dispatch(setDepositModalData({}));
   dispatch({
     type: WALLET_CLOSE_DEPOSIT_MODAL
   });
 };
 
-export const openWithdrawModal = () => (dispatch: Function) => {
+export const setDepositModalData = (data: any) => (dispatch: Function) => {
+  dispatch({
+    type: WALLET_SET_DEPOSIT_MODAL_DATA,
+    payload: data
+  });
+};
+
+export const openWithdrawModal = (data: any) => (dispatch: Function) => {
+  dispatch(setWithdrawModalData(data));
   dispatch({
     type: WALLET_OPEN_WITHDRAW_MODAL
   });
 };
 
 export const closeWithdrawModal = () => (dispatch: Function) => {
+  dispatch(setWithdrawModalData({}));
   dispatch({
     type: WALLET_CLOSE_WITHDRAW_MODAL
+  });
+};
+
+export const setWithdrawModalData = (data: any) => (dispatch: Function) => {
+  dispatch({
+    type: WALLET_SET_WITHDRAW_MODAL_DATA,
+    payload: data
   });
 };
