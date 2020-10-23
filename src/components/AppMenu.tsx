@@ -26,6 +26,7 @@ export default function AppMenu() {
         onClose={handleClose}
       >
         <MenuItem><Link to="/" >Home</Link></MenuItem>
+        <MenuItem><Link to="/wallet" >Wallet</Link></MenuItem>
         <MenuItem><Link to="/users" >Users</Link></MenuItem>
         <MenuItem><Logout /></MenuItem>     
       </Menu>

@@ -116,3 +116,10 @@ export interface IAction {
   type: string;
   payload?: any;
 }
+
+export interface IBalance {
+  id: string;
+  symbol: string;
+  icon: string;
+  balance: string;
+}

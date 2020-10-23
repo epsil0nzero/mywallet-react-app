@@ -3,6 +3,7 @@ import AppNavbar from './components/AppNavbar';
 import ShoppingList from './components/ShoppingList';
 import UserList from './components/user/UserList';
 import ItemModal from './components/ItemModal';
+import WalletPage from './components/wallet/WalletPage';
 
 import { Provider } from 'react-redux';
 import store from './redux/store';
@@ -37,6 +38,7 @@ const App = () => {
                 </Container>     
               </React.Fragment> 
             } />
+            <ProtectedRoute path="/wallet" exact component={WalletPage} />
             <ProtectedRoute path="/users" exact component={UserList} />
             <Route path="*" render={() =>     
             <React.Fragment>
