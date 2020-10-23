@@ -1,16 +1,11 @@
-import React, { Fragment } from 'react';
-import { NavLink } from 'reactstrap';
+import React from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../../redux/actions/authActions';
 import { ILogoutProps } from '../../types/interfaces';
 
 export const Logout = ({ logout }: ILogoutProps) => {
-  return (
-    <Fragment>
-      <NavLink onClick={logout} href="#">
-        Logout
-      </NavLink>
-    </Fragment>
+  return (   
+      <div onClick={logout}> Logout </div>
   );
 };
 

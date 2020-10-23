@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getItems, deleteItem } from '../redux/actions/itemActions';
@@ -20,8 +20,7 @@ const ShoppingList = ({
   };
 
   const { items } = item;
-  return (
-    <Container>
+  return (   
       <ListGroup>
         <TransitionGroup className="shopping-list">
           {items.map(({ _id, name }) => (
@@ -42,9 +41,7 @@ const ShoppingList = ({
             </CSSTransition>
           ))}
         </TransitionGroup>
-      </ListGroup>
-    </Container>
-  );
+      </ListGroup>  );
 };
 
 const mapStateToProps = (state: IItemReduxProps) => ({
