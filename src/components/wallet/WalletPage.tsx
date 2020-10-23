@@ -2,13 +2,19 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getBalances } from '../../redux/actions/walletActions';
 
-import { CssBaseline, Container } from '@material-ui/core';
-import { DataGrid, ColDef } from '@material-ui/data-grid';
+import { CssBaseline, Container,  } from '@material-ui/core';
+import { DataGrid, ColDef, ColTypeDef, ValueFormatterParams } from '@material-ui/data-grid';
+
+const icon: ColTypeDef = {
+  type: 'string',
+  renderCell: (params: ValueFormatterParams) =>  {  
+    return <img src={`/assets/icons/${params.value}.svg`} />;
+  }
+};
 
 const columns: ColDef[] = [
-  { field: 'id', headerName: 'ID', width: 100 },
-  { field: 'symbol', headerName: 'Symbol', width: 200 },
-  { field: 'icon', headerName: 'Icon', width: 200 },
+  { field: 'icon', headerName: ' ', width: 50, ...icon, },
+  { field: 'symbol', headerName: 'Name', width: 80 },  
   { field: 'balance', headerName: 'Balance', width: 200 },  
 ];
 
