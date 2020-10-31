@@ -19,7 +19,7 @@ const WalletPage = ({
   const icon: ColTypeDef = {
     type: 'string',
     renderCell: (params: ValueFormatterParams) =>  {  
-      return <img src={`/assets/icons/${params.value}.svg`} alt={`${params.value}`} />;
+      return <img height='30' src={`/assets/icons/${params.value}.png`} alt={`${params.value}`} />;
     }
   };
   const actions: ColTypeDef = {
@@ -36,7 +36,10 @@ const WalletPage = ({
   const columns: ColDef[] = [
     { field: 'icon', headerName: ' ', width: 50, ...icon, },
     { field: 'symbol', headerName: 'Name', width: 80 },  
-    { field: 'balance', headerName: 'Balance', width: 200 },  
+    { field: 'total', headerName: 'Total', width: 200 },  
+    { field: 'available', headerName: 'Available', width: 200 },  
+    { field: 'locked', headerName: 'Locked', width: 200 },  
+    { field: 'btc_value', headerName: 'BTC Value', width: 200 },  
     { field: 'actions', headerName: 'Actions', width: 100, ...actions, },
   ];
   const rows = wallet.balances;
