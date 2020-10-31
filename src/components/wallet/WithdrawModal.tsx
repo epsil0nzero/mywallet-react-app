@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
       border: '2px solid #000',
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
+      width: '600px'
     },
   }),
 );
@@ -43,7 +44,10 @@ const WithdrawModal = ({ open, data, closeWithdrawModal }: any) => {
         <Fade in={open}>
           <div className={classes.paper}>
             <ModalAlert />
-            <h2 id="withdraw-modal-title">{data.symbol}</h2>
+            <h2 id="withdraw-modal-title">Withdraw {data.symbol}</h2>
+            <br/><br/>
+            <p>Total Balance: {data.total}</p>
+            <p>Available Balance: {data.available}</p>
           </div>
         </Fade>
       </Modal>

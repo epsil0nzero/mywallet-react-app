@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { closeDepositModal } from '../../redux/actions/walletActions';
 
@@ -8,7 +8,6 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
 import ModalAlert from './ModalAlert';
-
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -22,6 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
       border: '2px solid #000',
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
+      width: '600px'
     },
   }),
 );
@@ -44,7 +44,11 @@ const DepositModal = ({ open, data, closeDepositModal }: any) => {
         <Fade in={open}>          
           <div className={classes.paper}>
             <ModalAlert />               
-            <h2 id="deposit-modal-title">{data.symbol}</h2>
+            <h2 id="deposit-modal-title">Deposit {data.symbol}</h2>
+            <br/><br/>
+            <p>Total Balance: {data.total}</p>
+            <p>Available Balance: {data.available}</p>
+            <img src={data.qr} alt=''/>
           </div>
         </Fade>
       </Modal>
