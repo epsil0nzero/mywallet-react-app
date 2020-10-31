@@ -7,6 +7,9 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
+import ModalAlert from './ModalAlert';
+
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     modal: {
@@ -26,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const DepositModal = ({ open, data, closeDepositModal }: any) => {
     
   const classes = useStyles();
-  return (
+  return (    
     <div>
       <Modal
         aria-labelledby="deposit-modal-title"
@@ -38,8 +41,9 @@ const DepositModal = ({ open, data, closeDepositModal }: any) => {
         BackdropComponent={Backdrop}
         BackdropProps={{ timeout: 1000 }}
       >
-        <Fade in={open}>
+        <Fade in={open}>          
           <div className={classes.paper}>
+            <ModalAlert />               
             <h2 id="deposit-modal-title">{data.symbol}</h2>
           </div>
         </Fade>
@@ -50,7 +54,8 @@ const DepositModal = ({ open, data, closeDepositModal }: any) => {
 
 const mapStateToProps = (state: any) => ({
     open: state.wallet.depositModalOpen,
-    data: state.wallet.depositModalData
+    data: state.wallet.depositModalData,
+    error: state.error,
 });
 
 export default connect(mapStateToProps, { closeDepositModal })(DepositModal);
